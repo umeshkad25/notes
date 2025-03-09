@@ -1,0 +1,17 @@
+//Remove duplicate
+		 List<String> listOfStrings = Arrays.asList("Java", "Python", "C#", "Java", "Kotlin", "Python");
+		 listOfStrings.stream().distinct().forEach(System.out::println);
+
+//even number
+		List<Integer> listOfIntegers = Arrays.asList(71, 18, 42, 21, 67, 32, 95, 14, 56, 87);
+		Map<Boolean,List<Integer>> map = listOfIntegers.stream().collect(Collectors.partitioningBy(i->i%2==0));
+		
+		List<Integer> even = map.get(false);
+		System.out.println(even);
+
+
+//Frequency
+		String inputString = "Java Concept Of The Day";
+		 Map<String, Long> charCountMap = Arrays.asList(inputString.split("")).stream().map(str->str.toUpperCase()).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		
+		 System.out.println(charCountMap);
